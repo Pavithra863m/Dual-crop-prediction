@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 st.cache_data
 st.title('Crop Recommender')
-model = pickle.load(open('model.pkl','rb'))
+model = pickle.load(open('new_model.pkl','rb'))
 N=st.number_input("Enter N")
 P=st.number_input("Enter P")
 K=st.number_input("Enter K")
@@ -15,4 +15,3 @@ if button:
        y_pred = model.predict([[N,P, K, temperature, humidity, ph, rainfall]])
        st.write("the predicted crop can be grown is ")
        st.write(y_pred[0])
-       
